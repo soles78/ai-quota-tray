@@ -1,3 +1,5 @@
+<p align="center"><img src="docs/app-icon.png" width="128" alt="AI Quota Tray 아이콘"></p>
+
 # AI Quota Tray for Windows
 
 작업표시줄 트레이에서 **Claude Code · Codex · Antigravity** 한도 잔여율(5시간·주간)을 한눈에 보여주는 작은 Windows 앱입니다.
@@ -53,6 +55,7 @@
 | `AIQuotaTray.cs` | 실행기(PowerShell 엔진을 프로세스 안에서 구동하는 작은 exe) |
 | `codex_usage.ps1` | Codex 한도 조회 도우미 |
 | `install.cmd` / `install.ps1` | 바로가기 설치·갱신·제거, 필요 시 exe 빌드 |
+| `ai_quota.ico` / `make_icon.ps1` | 앱 아이콘(바깥부터 Claude·Codex·Antigravity 한도 게이지)과 그 생성 스크립트 |
 
 개발용 옵션: `AIQuotaTray.ps1 -Probe`(값만 출력), `-Shot out.png -Demo -Skin terminal`(화면 이미지 저장), `-IconSheet out.png`(트레이 아이콘 모음).
 스킨은 `AIQuotaTray.ps1`의 `$Skins` 표에 색·글꼴·막대 모양을 추가하면 늘릴 수 있습니다.
