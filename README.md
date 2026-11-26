@@ -2,6 +2,8 @@
 
 # AI Quota Tray for Windows
 
+**한국어** | [English](README.en.md)
+
 작업표시줄 트레이에서 **Claude Code · Codex · Antigravity** 한도 잔여율(5시간·주간)을 한눈에 보여주는 작은 Windows 앱입니다.
 아이콘을 누르면 패널이 열리고, 아이콘 숫자는 켜 둔 항목 중 가장 낮은 잔여율입니다.
 
