@@ -10,6 +10,14 @@ if (-not $cx) {
     $d = Get-ChildItem 'C:\Program Files\WindowsApps' -Directory -Filter 'OpenAI.Codex_*' -ErrorAction SilentlyContinue | Sort-Object Name -Descending | Select-Object -First 1
     if ($d) { $t = Join-Path $d.FullName 'app\resources\codex.exe'; if (Test-Path $t) { $cx = $t } }
 }
+# npm 으로 설치한 Codex CLI (%APPDATA%\npm\node_modules\@openai\codex 아래 플랫폼 패키지에 실제 codex.exe 가 있다)
+if (-not $cx) {
+    $npmRoot = Join-Path $env:APPDATA 'npm\node_modules\@openai\codex'
+    if (Test-Path $npmRoot) {
+        $t = Get-ChildItem $npmRoot -Recurse -Filter codex.exe -ErrorAction SilentlyContinue | Where-Object { $_.FullName -like '*win32*' } | Select-Object -First 1
+        if ($t) { $cx = $t.FullName }
+    }
+}
 if (-not $cx) { [Console]::Error.WriteLine('codex.exe not found'); exit 3 }
 
 $port = Get-Random -Minimum 47000 -Maximum 49000
