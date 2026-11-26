@@ -29,7 +29,7 @@ Uninstall: `powershell -ExecutionPolicy Bypass -File install.ps1 -Remove`
 
 ## Requirements
 - Windows 10/11 (Windows PowerShell 5.1 and .NET Framework 4 are built in)
-- Install and sign in to whichever services you want to see: `claude` (Claude Code CLI), `agy` (Antigravity CLI), the Codex desktop app
+- Install and sign in to whichever services you want to see: `claude` (Claude Code CLI), `agy` (Antigravity CLI), Codex (the desktop app, or the CLI installed with `npm i -g @openai/codex`)
   - Services that are missing show as "unknown"; the rest keep working.
 
 ## Where the numbers come from (transparency)
@@ -39,7 +39,7 @@ This app **does not read tokens or credential files.** It runs each program unde
 |---|---|
 | Claude Code | output of `claude -p "/usage"` |
 | Antigravity | output of `agy -p "/usage"` |
-| Codex | a request to the Codex app's local `app-server` (loopback WebSocket) with `account/rateLimits/read` (`codex_usage.ps1`) |
+| Codex | starts a local `app-server` (loopback WebSocket) from `codex.exe` of the Codex desktop app or npm CLI and sends `account/rateLimits/read` (`codex_usage.ps1`) |
 
 The app itself sends no data anywhere. (What each CLI exchanges with its own servers is that program's own behavior.)
 Settings are stored in `%USERPROFILE%\.ai-quota-tray\settings.json`.

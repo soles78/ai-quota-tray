@@ -30,7 +30,7 @@
 
 ## 필요한 것
 - Windows 10/11 (Windows PowerShell 5.1과 .NET Framework 4는 기본 포함)
-- 보고 싶은 항목만큼 설치·로그인: `claude`(Claude Code CLI), `agy`(Antigravity CLI), Codex 데스크톱 앱
+- 보고 싶은 항목만큼 설치·로그인: `claude`(Claude Code CLI), `agy`(Antigravity CLI), Codex(데스크톱 앱 또는 `npm i -g @openai/codex`로 설치한 CLI)
   - 없는 항목은 "미확인"으로 표시되고 나머지는 정상 동작합니다.
 
 ## 한도를 어디서 읽나 (투명성)
@@ -40,7 +40,7 @@
 |---|---|
 | Claude Code | `claude -p "/usage"` 출력 |
 | Antigravity | `agy -p "/usage"` 출력 |
-| Codex | Codex 앱의 로컬 `app-server`(루프백 WebSocket)에 `account/rateLimits/read` 요청 (`codex_usage.ps1`) |
+| Codex | Codex(데스크톱 앱 또는 npm CLI)의 `codex.exe`로 로컬 `app-server`(루프백 WebSocket)를 띄워 `account/rateLimits/read` 요청 (`codex_usage.ps1`) |
 
 이 앱 자체는 외부로 어떤 데이터도 보내지 않습니다. (각 CLI가 자기 서버와 통신하는 것은 그 프로그램의 동작입니다.)
 설정은 `%USERPROFILE%\.ai-quota-tray\settings.json`에 저장됩니다.
